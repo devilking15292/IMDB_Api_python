@@ -25,6 +25,9 @@ setup(name='IMDBAPI',
 	  install_requires=install_requires,
       zip_safe=False,
 	   classifiers=[
+		'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Internet :: WWW/HTTP',
 		]
 	)
