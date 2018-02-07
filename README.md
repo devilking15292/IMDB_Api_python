@@ -1,24 +1,34 @@
 # IMDB_Api_python
+[![PyPI](https://img.shields.io/pypi/v/IMDBAPI.svg)](https://pypi.python.org/pypi/IMDBAPI)
+[![Python Versions](https://img.shields.io/pypi/pyversions/IMDBAPI.svg)](https://pypi.python.org/pypi/IMDBAPI)
 
-#setup
-pip install IMDB
+## Install
+
+```bash
+pip install IMDBAPI
+```
 
 #windows
-py -m pip install IMDB
+py -m pip install IMDBAPI
 
 #with setup.py
 py setup.py install
 
 
 #current verision is 0.1Beta
+
 #Has only one function getRating() which returns the rating of the requsted movie
 
 #Example
 
->>> from IMDB import IMDB
+```python
+from IMDBAPI import IMDB
 
->>> imdb = IMDB()
+imdb = IMDB()
 
->>> print("Movie rated: "+imdb.getRating('darknight rises')+" out of 10")
+print("Movie rated: "+imdb.getRating('darknight rises')+" out of 10")
 Movie: The Dark Knight Rises
 Movie rated:  '8.4' out of 10
+```
+
+
