@@ -1,6 +1,6 @@
 # IMDB_Api_python
 [![PyPI](https://img.shields.io/pypi/v/IMDBAPI.svg)](https://pypi.python.org/pypi/IMDBAPI)
-[![Python Versions](https://img.shields.io/pypi/pyversions/IMDBAPI.svg)](https://pypi.python.org/pypi/IMDBAPI)
+
 
 ## Install
 
@@ -9,11 +9,14 @@ pip install IMDBAPI
 ```
 
 #windows
+```bash
 py -m pip install IMDBAPI
+```
 
 #with setup.py
+```bash
 py setup.py install
-
+```
 
 #current verision is 0.1Beta
 
