@@ -16,10 +16,15 @@ with open('requirements.txt') as f:
 setup(name='IMDB',
       version='0.1 beta',
       description='API for IMDB',
+	  packages=find_packages('IMDB', exclude=('tests',)),
+	  package_dir={'': 'IMDB'},
       url='https://github.com/devilking15292/IMDB_Api_python.git',
       author='devilking15292',
       author_email='p.hari15292@gmail.com',
       license='MIT',
-      packages=['IMDB'],
 	  install_requires=install_requires,
-      zip_safe=False)
+      zip_safe=False,
+	   classifiers=[
+        'Topic :: Internet :: WWW/HTTP',
+		]
+	)
