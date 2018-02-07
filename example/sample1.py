@@ -1,4 +1,4 @@
-from IMDB import IMDB
+from IMDBAPI import IMDB
 def main():
     while 1:
         imdb = IMDB()

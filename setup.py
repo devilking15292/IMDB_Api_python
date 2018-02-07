@@ -13,11 +13,11 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
 
-setup(name='IMDB',
+setup(name='IMDBAPI',
       version='0.1 beta',
       description='API for IMDB',
-	  packages=find_packages('IMDB', exclude=('tests',)),
-	  package_dir={'': 'IMDB'},
+	  packages=find_packages('IMDBAPI', exclude=('tests',)),
+	  package_dir={'': 'IMDBAPI'},
       url='https://github.com/devilking15292/IMDB_Api_python.git',
       author='devilking15292',
       author_email='p.hari15292@gmail.com',
