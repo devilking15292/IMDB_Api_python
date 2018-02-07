@@ -32,15 +32,3 @@ class IMDB:
         #print(url)
         resp = requests.get(url)
         return BeautifulSoup(resp.text, "html5lib")
-
-def main():
-    while 1:
-        imdb = IMDB()
-        movie = input("Enter a movie: ").strip();
-        if movie == 'quit':
-            break
-        if movie:
-            print("Movie Rated: "+imdb.getRating(movie)+" out Of 10")
-        else:
-            print("enter a valid movie name")
-main()
