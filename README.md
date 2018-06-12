@@ -72,9 +72,9 @@ Movie rated:  '8.4' out of 10
 
 ## IMDB_ID : 
 	is an unique ID given by IMDB to a movie or series or a celebrity, IMDB_ID can be found in the URL.
-if you open IMDB for a movie, say "The Dark night rises" the URL will be "https://www.imdb.com/title/tt1345836/"
-
-this last text "tt1345836" is the IMDB ID of the movie
+	if you open IMDB for a movie, say "The Dark night rises" the URL will be "https://www.imdb.com/title/tt1345836/"
+	
+	this last text "tt1345836" is the IMDB ID of the movie
 
 
 
