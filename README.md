@@ -20,36 +20,42 @@ py setup.py install
 
 #current verision is 0.1Beta
 
-#API
-
- getRating(movieName ):
+##API
+		
+ ###getRating(movieName ):
+		
 		which returns the rating of the requsted movie by passing Movie Name as a parameter
 		
- getRatingByImdbId(IMDB_ID ):
+ ###getRatingByImdbId(IMDB_ID ):
+		
 		which returns the rating of the requsted movie by IMDB ID as a prameter
 
- getDirector(movieName):
+ ###getDirector(movieName):
+		
 		which returns the Directors name of the requsted movie by passing Movie Name as a parameter
 
- getDirectorByImdbId(IMDB_ID ):
+ ###getDirectorByImdbId(IMDB_ID ):
+		
 		which returns the Directors name of the requsted movie by IMDB ID as a prameter
-		
- getCasting(movieName, length=10, all=False):
-		which returns the cast list of the requsted movie by passing Movie Name as a parameter
-		
-		length: No of castlist which will be returned
-		all: if set to True returns all the cast list
-		
- getCastingByImdbId(IMDB_ID , length=10, all=False):
-		which returns the cast list of the requsted movie by IMDB ID as a prameter
-		
-		length: No of castlist which will be returned
-		all: if set to True returns all the cast list
 
- getSummary(movieName ):
+ ###getCasting(movieName, length=10, all=False):
+		
+		which returns the cast list of the requsted movie by passing Movie Name as a parameter
+		###length: No of castlist which will be returned
+		###all: if set to True returns all the cast list
+		
+ ###getCastingByImdbId(IMDB_ID , length=10, all=False):
+		
+		which returns the cast list of the requsted movie by IMDB ID as a prameter
+		###length: No of castlist which will be returned
+		###all: if set to True returns all the cast list
+
+ ###getSummary(movieName ):
+		
 		which returns the summary of the requsted movie by passing Movie Name as a parameter
 
- getSummaryByImdbId(IMDB_ID ):
+ ###getSummaryByImdbId(IMDB_ID ):
+		
 		which returns the summary of the requsted movie by IMDB ID as a prameter
 
 #Example
