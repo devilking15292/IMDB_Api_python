@@ -14,20 +14,19 @@ with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
 
 setup(name='IMDBAPI',
-      version='0.1 beta',
-      description='API for IMDB',
-	  packages=find_packages('IMDBAPI', exclude=('tests',)),
-	  package_dir={'': 'IMDBAPI'},
-      url='https://github.com/devilking15292/IMDB_Api_python.git',
-      author='devilking15292',
-      author_email='p.hari15292@gmail.com',
-      license='MIT',
-	  install_requires=install_requires,
-      zip_safe=False,
-	   classifiers=[
-		'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Topic :: Internet :: WWW/HTTP',
-		]
-	)
+    version='0.2.1.2',
+    description='API for IMDB',
+    packages=['IMDBAPI'],
+    url='https://github.com/devilking15292/IMDB_Api_python.git',
+    author='devilking15292',
+    author_email='p.hari15292@gmail.com',
+    license='MIT',
+    install_requires=install_requires,
+    zip_safe=False,
+    classifiers=[
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'Programming Language :: Python :: 3.6',
+    'Topic :: Internet :: WWW/HTTP',
+    ]
+    )
