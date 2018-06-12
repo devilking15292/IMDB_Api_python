@@ -39,14 +39,14 @@ py setup.py install
  ### getCasting(movieName, length=10, all=False):
 		
 		which returns the cast list of the requsted movie by passing Movie Name as a parameter
-		<b> length</b>: No of castlist which will be returned (default "10")
-		<b> all</b>: if set to True returns all the cast list (default "False")
+	#### length: No of castlist which will be returned (default "10")
+	#### all: if set to True returns all the cast list (default "False")
 		
  ### getCastingByImdbId(IMDB_ID , length=10, all=False):
 		
 		which returns the cast list of the requsted movie by IMDB ID as a prameter
-		<b> length</b>: No of castlist which will be returned (default "10")
-		<b> all</b>: if set to True returns all the cast list (default "False")
+	#### length: No of castlist which will be returned (default "10")
+	#### all: if set to True returns all the cast list (default "False")
 
  ### getSummary(movieName ):
 		
