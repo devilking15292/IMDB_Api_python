@@ -8,17 +8,17 @@
 pip install IMDBAPI
 ```
 
-#windows
+# windows
 ```bash
 py -m pip install IMDBAPI
 ```
 
-#with setup.py
+# with setup.py
 ```bash
 py setup.py install
 ```
 
-#current verision is 0.1Beta
+# current verision is 0.1Beta
 
 ##API
 		
