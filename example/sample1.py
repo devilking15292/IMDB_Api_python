@@ -3,6 +3,10 @@ from IMDBAPI import IMDB
 def main():
 	while 1:
 		imdb = IMDB()
+		
+		#print("Movie Rated: "+imdb.getRating("dark night rises")+" out Of 10") #get ratings for "The Dark night rises"
+		#print("Movie Rated: "+imdb.getRatingByImdbId("tt1345836")+" out Of 10") #get ratings for "The Dark night rises" using its IMDB ID
+		
 		movie = input("Enter a movie: ").strip();
 		if movie:
 			
