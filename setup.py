@@ -14,14 +14,16 @@ with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
 
 setup(name='IMDBAPI',
-    version='0.2.1.2',
-    description='API for IMDB',
+    version='0.2.1.3',
+    description='API for IMDB, to search for movie and get the details like rating, summary, director, cast etc',
+	long_description='API for IMDB, to search for movie and get the details like rating, summary, director, cast etc',
     packages=['IMDBAPI'],
     url='https://github.com/devilking15292/IMDB_Api_python.git',
     author='devilking15292',
     author_email='p.hari15292@gmail.com',
     license='MIT',
     install_requires=install_requires,
+	keywords='imdb, imdbapi, movie, movies',
     zip_safe=False,
     classifiers=[
     'Programming Language :: Python :: 3.4',
