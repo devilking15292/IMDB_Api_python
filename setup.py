@@ -8,7 +8,7 @@ import os
 here = os.path.abspath(os.path.dirname(__file__))
 
 # Get the long description from the relevant file
-with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
 from setuptools import find_packages, setup
@@ -20,7 +20,7 @@ with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
 
 setup(name='IMDBAPI',
-    version='1.0.1.4',
+    version='1.0.1.6',
     description='API for IMDB, to search for movie and get the details like rating, summary, director, cast etc',
 	long_description=long_description,
     packages=['IMDBAPI'],
