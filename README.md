@@ -64,6 +64,12 @@ py setup.py install
 		
 		which returns the data of the requsted movie by IMDB ID as a prameter, data is as follows
 		
+		title - Movie full tile
+		runTime - duration of the movie
+		titleYear - year of the movie title
+		releaseDate - date of the movie
+		gener - gener as an array
+		posterUrl - url of the movie poster
 		rating - rating of the movie
 		summary - summary text
 		director - name of the director
@@ -135,6 +141,8 @@ Movie Details:
 Movie: The Dark Knight Rises
 
 {
+	"title": "The Dark Knight Rises",
+	
 	"runTime": "2h44min",
 	
 	"titleYear": "2012",
