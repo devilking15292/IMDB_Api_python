@@ -8,6 +8,21 @@ class IMDB:
 	titleUrl = baseUrl+"title/"
 	searchUrl = baseUrl+"find?s=all&q="
 	creditsPath = 'fullcredits/'
+	currentSearchTitle = None
+	
+	
+	def getMovie(self, title):
+		return IMDB.getMovieByImdbId(self, IMDB.getIdFromName(title))
+	
+	def getMovieByImdbId(self, title):
+		soup = IMDB.getSoup(title, None)
+		movie = IMDB.getFeatures(soup);
+		movie['rating'] = IMDB.getRatingByImdbId(self, title, soup)
+		movie['summary'] = IMDB.getSummaryByImdbId(self, title, soup)
+		movie['director'] = IMDB.getDirectorByImdbId(self, title, soup)
+		movie['casting'] = IMDB.getCastingByImdbId(self, title)
+		
+		return movie;
 
 	#############################
 	'''get Ratings only STARTS'''
@@ -16,8 +31,9 @@ class IMDB:
 	def getRating(self, title):
 		return IMDB.getRatingByImdbId(self, IMDB.getIdFromName(title))
 
-	def getRatingByImdbId(self, title):
-		return re.sub('\s+', '', IMDB.parseHTML(IMDB.scrapSite(IMDB.titleUrl+title+"/"), 'div', 'class', 'ratingValue').strong.span.text)
+	def getRatingByImdbId(self, title, soup=None):
+		soup = IMDB.getSoup(title, soup)
+		return re.sub('\s+', '', IMDB.parseHTML(soup, 'div', 'class', 'ratingValue').strong.span.text)
 
 	###########################
 	'''get Ratings only ENDS'''
@@ -32,8 +48,9 @@ class IMDB:
 	def getSummary(self, title):
 		return IMDB.getSummaryByImdbId(self, IMDB.getIdFromName(title))
 
-	def getSummaryByImdbId(self, title):
-		return (re.sub(r'[\t\r\n]', '', (IMDB.parseHTML(IMDB.scrapSite(IMDB.titleUrl+title+"/"), 'div', 'class', 'summary_text').text))).strip()
+	def getSummaryByImdbId(self, title, soup=None):
+		soup = IMDB.getSoup(title, soup)
+		return (re.sub(r'[\t\r\n]', '', (IMDB.parseHTML(soup, 'div', 'class', 'summary_text').text))).strip()
 
 	#############################
 	'''get Summary only ENDS'''
@@ -48,8 +65,9 @@ class IMDB:
 	def getDirector(self, title):
 		return IMDB.getDirectorByImdbId(self, IMDB.getIdFromName(title))
 
-	def getDirectorByImdbId(self, title):
-		return re.sub('\s+', '', IMDB.parseHTML(IMDB.scrapSite(IMDB.titleUrl+title+"/"), 'span', 'itemprop', 'director').a.span.text)
+	def getDirectorByImdbId(self, title, soup=None):
+		soup = IMDB.getSoup(title, soup)
+		return re.sub('\s+', '', IMDB.parseHTML(soup, 'span', 'itemprop', 'director').a.span.text)
 
 	#############################
 	'''get Director only ENDS'''
@@ -71,7 +89,10 @@ class IMDB:
 		for tr in soup.find_all('tr'):
 			tds = tr.find_all('td')
 			if len(tds) > 2:
-				castList.append(re.sub(r'[\t\r\n]', '', "".join(tds[1].find_all(text=True))).strip() +" AS "+ re.sub(r'[\t\r\n]', '', "".join(tds[3].find_all(text=True))).strip())
+				cast = {}
+				cast['actor'] = re.sub(r'[\t\r\n]', '', "".join(tds[1].find_all(text=True))).strip()
+				cast['role'] = re.sub(r'[\t\r\n]', '', "".join(tds[3].find_all(text=True))).strip()
+				castList.append(cast)
 				if not all:
 					counter+=1;
 					if counter == 10:
@@ -83,6 +104,28 @@ class IMDB:
 	#############################
 
 	'''--------------------------------------------------------------------'''
+	
+	def getFeatures(soup):
+		features = {}
+		features['title'] = IMDB.currentSearchTitle
+		features['runTime'] = re.sub('\s+', '', IMDB.parseHTML(soup, 'time', 'itemprop', 'duration').text)
+		features['titleYear'] = IMDB.parseHTML(soup, 'span', 'id', 'titleYear').a.text
+		features['releaseDate'] = IMDB.parseHTML(soup, 'meta', 'itemprop', 'datePublished')['content']
+		
+		generDirty = soup.find_all(attrs = {"itemprop":"genre", "class":"itemprop"});
+		gener = []
+		for tag in generDirty:
+			gener.append(tag.text)
+		
+		features['gener'] = gener;
+		features['posterUrl'] = IMDB.parseHTML(soup, 'div', 'class', 'poster').a.img['src']
+		
+		return features;
+	
+	def getSoup(title, soup):
+		if soup is None:
+			soup = IMDB.scrapSite(IMDB.titleUrl+title+"/")
+		return soup;
 
 	def parseHTML(soup, ele, idType, idValue):
 		try:
@@ -96,6 +139,7 @@ class IMDB:
 			soup = IMDB.scrapSite(IMDB.searchUrl+title)
 			movie = soup.find('td',{'class':'result_text'}).a
 			print("Movie: "+movie.text)
+			IMDB.currentSearchTitle = movie.text;
 			return movie['href'].split('/')[2]
 		except Exception:
 			print("Sorry an error accured cant get data extracted")

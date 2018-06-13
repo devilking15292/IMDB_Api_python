@@ -25,9 +25,13 @@ def main():
 			
 			#castList = imdb.getCastingByImdbId(movie, all=True) #print all of the cast List
 			
-			print("list size: "+str(len(castList)))
+			print("Cast_list size: "+str(len(castList)))
 			for cast in castList:
 				print(cast)
+			
+			print("Movie Details: ")
+			print(imdb.getMovie(movie))
+			#print(imdb.getMovieByImdbId(movie))
 		else:
 			print("enter a valid movie name")
 main()

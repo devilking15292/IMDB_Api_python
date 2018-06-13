@@ -5,6 +5,12 @@ from __future__ import absolute_import
 
 import os
 
+here = os.path.abspath(os.path.dirname(__file__))
+
+# Get the long description from the relevant file
+with open(os.path.join(here, 'README.md'), encoding='utf-8') as f:
+    long_description = f.read()
+
 from setuptools import find_packages, setup
 
 # allow setup.py to be run from any path
@@ -14,9 +20,9 @@ with open('requirements.txt') as f:
     install_requires = f.read().splitlines()
 
 setup(name='IMDBAPI',
-    version='0.2.1.3',
+    version='1.0.1.4',
     description='API for IMDB, to search for movie and get the details like rating, summary, director, cast etc',
-	long_description='API for IMDB, to search for movie and get the details like rating, summary, director, cast etc',
+	long_description=long_description,
     packages=['IMDBAPI'],
     url='https://github.com/devilking15292/IMDB_Api_python.git',
     author='devilking15292',
